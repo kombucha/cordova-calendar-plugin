@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="fr.smile.cordova.calendar" version="0.0.1"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>CalendarPlugin</name>
+    <description>Calendar plugin for iOS and Android</description>
+
+    <js-module name="CalendarPlugin" src="www/CalendarPlugin.js">
+        <clobbers target="cordova.plugins.CalendarPlugin"/>
+        <clobbers target="window.plugins.calendarPlugin"></clobbers>
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CalendarPlugin">
+                <param name="android-package" value="fr.smile.cordova.calendar.CalendarPlugin"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"/>
+        <source-file src="src/android/CalendarPlugin.java"
+                     target-dir="src/fr/smile/cordova/calendar/CalendarPlugin"/>
+    </platform>
+
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="CalendarPlugin">
+                <param name="ios-package" value="CalendarPlugin"/>
+            </feature>
+        </config-file>
+
+        <framework src="EventKitUI.framework"/>
+        <framework src="EventKit.framework"/>
+
+        <source-file src="src/ios/CalendarPlugin.h"/>
+        <source-file src="src/ios/CalendarPlugin.m"/>
+    </platform>
+
+</plugin>
