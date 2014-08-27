@@ -16,7 +16,6 @@ import android.content.Intent;
 public class CalendarPlugin extends CordovaPlugin {
 	private static final String ACTION_ADD_TO_CALENDAR = "createEvent";
 	private static final Integer RESULT_CODE_CREATE = 0;
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	private CallbackContext callback;
 
